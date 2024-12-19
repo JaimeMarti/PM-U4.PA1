@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:u4_pa1/domain/entities/character.dart';
+import 'package:u4_pa2/domain/entities/character.dart';
 
 class CharacterState extends Equatable {
   final List<Character> characters;

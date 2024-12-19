@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:u4_pa1/domain/usecases/get_all_characters_usecase.dart';
-import 'package:u4_pa1/presentation/blocs/characters/characters_event.dart';
-import 'package:u4_pa1/presentation/blocs/characters/characters_state.dart';
+import 'package:u4_pa2/domain/usecases/get_all_characters_usecase.dart';
+import 'package:u4_pa2/presentation/blocs/characters/characters_event.dart';
+import 'package:u4_pa2/presentation/blocs/characters/characters_state.dart';
 
 class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
   final GetAllCharacters getAllCharacters;

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:u4_pa1/data/models/character_model.dart';
+import 'package:u4_pa2/data/models/character_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract class CharacterRemoteDataSource {

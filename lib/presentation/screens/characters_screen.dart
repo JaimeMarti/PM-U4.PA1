@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:u4_pa1/presentation/blocs/characters/characters_bloc.dart';
-import 'package:u4_pa1/presentation/blocs/characters/characters_event.dart';
-import 'package:u4_pa1/presentation/blocs/characters/characters_state.dart';
+import 'package:u4_pa2/presentation/blocs/characters/characters_bloc.dart';
+import 'package:u4_pa2/presentation/blocs/characters/characters_event.dart';
+import 'package:u4_pa2/presentation/blocs/characters/characters_state.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
@@ -76,13 +76,10 @@ class _CharacterScreenState extends State<CharactersScreen> {
                           character.image.isNotEmpty ?
                             Image.network(character.image)
                           :
-                            const Text(
-                              "?",
-                              style: TextStyle(fontSize: 32),
-                            )
+                            Image.network("https://media.istockphoto.com/id/1334419989/photo/3d-red-question-mark.jpg?s=612x612&w=0&k=20&c=bpaGVuyt_ACui3xK8CvkeoVQC-jczxANZTMXGKAE11E=")
                         ),
-                        title: Text(character.name),
-                        subtitle: Text(character.house),
+                        title: Text("${character.name} - ${character.wand.wood ?? "No wood"}, ${character.wand.core ?? "No core"}, ${character.wand.length ?? 5}"),
+                        subtitle: Text(character.house)
                       );
                     },
                   );

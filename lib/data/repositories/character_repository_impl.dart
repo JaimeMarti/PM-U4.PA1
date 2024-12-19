@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:u4_pa1/data/datasources/character_remote_datasource.dart';
-import 'package:u4_pa1/domain/entities/character.dart';
-import 'package:u4_pa1/domain/repositories/character_repository.dart';
+import 'package:u4_pa2/data/datasources/character_remote_datasource.dart';
+import 'package:u4_pa2/domain/entities/character.dart';
+import 'package:u4_pa2/domain/entities/wand.dart';
+import 'package:u4_pa2/domain/repositories/character_repository.dart';
 
 class CharacterRepositoryImpl implements CharacterRepository {
   final CharacterRemoteDataSource remoteDataSource;
@@ -14,7 +15,15 @@ class CharacterRepositoryImpl implements CharacterRepository {
       final characterModels = await remoteDataSource.getAllCharacters();
       return Right(characterModels
         .map((model) => Character(
-          name: model.name, house: model.house, image: model.image))
+          name: model.name,
+          house: model.house,
+          image: model.image,
+          wand: Wand(
+            wood: model.wand.wood,
+            core: model.wand.core,
+            length: model.wand.length
+          )
+        ))
         .toList());
     } catch (e) {
       return Left(Exception('Error al cargar personajes'));
