@@ -3,7 +3,7 @@ import 'package:u4_pa2/domain/entities/wand.dart';
 class Character {
   final String name;
   final String house;
-  final String image;
+  final String? image;
   final Wand wand;
 
   Character({

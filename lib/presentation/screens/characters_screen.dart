@@ -72,12 +72,7 @@ class _CharacterScreenState extends State<CharactersScreen> {
                     itemBuilder: (context, index) {
                       final character = state.characters[index];
                       return ListTile(
-                        leading: (
-                          character.image.isNotEmpty ?
-                            Image.network(character.image)
-                          :
-                            Image.network("https://media.istockphoto.com/id/1334419989/photo/3d-red-question-mark.jpg?s=612x612&w=0&k=20&c=bpaGVuyt_ACui3xK8CvkeoVQC-jczxANZTMXGKAE11E=")
-                        ),
+                        leading: Image.network(character.image ?? "https://media.istockphoto.com/id/1334419989/photo/3d-red-question-mark.jpg?s=612x612&w=0&k=20&c=bpaGVuyt_ACui3xK8CvkeoVQC-jczxANZTMXGKAE11E="),
                         title: Text("${character.name} - ${character.wand.wood ?? "No wood"}, ${character.wand.core ?? "No core"}, ${character.wand.length ?? 5}"),
                         subtitle: Text(character.house)
                       );
