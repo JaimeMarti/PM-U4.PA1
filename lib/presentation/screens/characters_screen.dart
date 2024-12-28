@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:u4_pa2/presentation/blocs/characters/characters_bloc.dart';
 import 'package:u4_pa2/presentation/blocs/characters/characters_event.dart';
 import 'package:u4_pa2/presentation/blocs/characters/characters_state.dart';
+import 'package:u4_pa2/presentation/blocs/login/login_bloc.dart';
+import 'package:u4_pa2/presentation/blocs/login/login_event.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
@@ -22,7 +25,18 @@ class _CharacterScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Personajes de Harry Potter')),
+      appBar: AppBar(
+        title: const Text('Personajes de Harry Potter'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              context.read<LoginBloc>().add(LogoutButtonPressed());
+              context.go('/login');
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(
